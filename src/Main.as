@@ -27,8 +27,8 @@ int PeriodLength = 5000;
 void UpdateCam3(CPlugVehicleCameraInternalModel@ cam3) {
     auto state = VehicleState::ViewingPlayerState();
     float speedProg = state.FrontSpeed / 1000.0;
-    cam3.Fov = Math::Lerp(65.0, 130.0, Math::Sqrt(speedProg));
-    cam3.RelativePos = Math::Lerp(vec3(.2, 1.235, -1.2), vec3(-.2, 1.435, -3.2), speedProg);
+    cam3.Fov = Math::Lerp(65.0, 130.0, Math::Sqrt(Math::Abs(speedProg)));
+    cam3.RelativePos = Math::Lerp(vec3(.2, 1.335, -1.2), vec3(-.2, 1.935, -3.2), speedProg);
     // int stage = Time::Now / PeriodLength % 3;
     // float progress = float(Time::Now % PeriodLength) / float(PeriodLength);
     // if (stage == 0) {
